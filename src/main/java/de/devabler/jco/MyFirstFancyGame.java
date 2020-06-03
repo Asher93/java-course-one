@@ -16,8 +16,9 @@ public class MyFirstFancyGame {
         while(true){
             var input = screen.pollInput();
             if (input.getKeyType() == KeyType.ArrowLeft)
-                textGraphics
+                textGraphics.putString(x,y, "-/|\\-")
             else if (input.getKeyType() == KeyType.ArrowRight)
+                textGraphics.putString(x,y, "-/|\\-")
 
             textGraphics.putString(x,y, "-/|\\-");
             screen.refresh();
