@@ -1,0 +1,7 @@
+
+Klassen<------------+
+  |                 |
+  new              Typ
+  |                 |
+  V                 |
+Objekte/Instanzen---+
