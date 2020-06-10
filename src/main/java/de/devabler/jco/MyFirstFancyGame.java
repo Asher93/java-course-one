@@ -20,13 +20,13 @@ public class MyFirstFancyGame {
             var input = screen.pollInput();
             if (input != null){
                 if (input.getKeyType() == KeyType.ArrowLeft && x != -1)
-                   --x;
+                   x = x-1;
                 else if (input.getKeyType() == KeyType.ArrowRight && x != spielfeldBreite - 7) 
-                    ++x;
+                    x = x+1;
                 else if (input.getKeyType() == KeyType.ArrowUp) {
                     raketeSpieler = new Rakete();
-                    raketeSpieler.raketeX = x;
-                    raketeSpieler.raketeY = y;
+                    raketeSpieler.raketeX = x+3;
+                    raketeSpieler.raketeY = y-1;    
                 }
                 
             
@@ -34,7 +34,12 @@ public class MyFirstFancyGame {
 
             textGraphics.putString(x,y, " -/|\\- ");
             
+            if(raketeSpieler != null){
             textGraphics.putString(raketeSpieler.raketeX,raketeSpieler.raketeY, "I");
+                raketeSpieler.raketeY = raketeSpieler.raketeY-1;
+            }
+            
+            
             screen.refresh();
             Thread.sleep(10);
         }
