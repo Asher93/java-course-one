@@ -24,9 +24,12 @@ public class MyFirstFancyGame {
                 else if (input.getKeyType() == KeyType.ArrowRight && x != spielfeldBreite - 7) 
                     x = x+1;
                 else if (input.getKeyType() == KeyType.ArrowUp) {
-                    raketeSpieler = new Rakete();
-                    raketeSpieler.raketeX = x+3;
-                    raketeSpieler.raketeY = y-1;    
+                    if (raketeSpieler == null){
+                        raketeSpieler = new Rakete();
+                        raketeSpieler.raketeX = x+3;
+                        raketeSpieler.raketeY = y-1;
+                    }
+
                 }
                 
             
@@ -35,13 +38,19 @@ public class MyFirstFancyGame {
             textGraphics.putString(x,y, " -/|\\- ");
             
             if(raketeSpieler != null){
-            textGraphics.putString(raketeSpieler.raketeX,raketeSpieler.raketeY, "I");
+                textGraphics.putString(raketeSpieler.raketeX, raketeSpieler.raketeY+1, " ");
+                textGraphics.putString(raketeSpieler.raketeX,raketeSpieler.raketeY, "I");
                 raketeSpieler.raketeY = raketeSpieler.raketeY-1;
+                if(raketeSpieler.raketeY < -1){
+                    raketeSpieler = null;
+
+                }
+
             }
             
             
             screen.refresh();
-            Thread.sleep(10);
+            Thread.sleep(100);
         }
      }
     }
